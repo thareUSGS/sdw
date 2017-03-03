@@ -191,10 +191,11 @@ sosa:hasResult
   schema:domainIncludes sosa:Actuation ;
   schema:domainIncludes sosa:Observation ;
   schema:rangeIncludes sosa:Result ;
-  rdfs:comment "Relation linking an Observation and a Sensor or Actuator and a Result, which contains a value representing the value associated with the observed Property."@en ;
+  schema:rangeIncludes sosa:Sample ;
+  rdfs:comment "Relation linking an Observation and a Sensor or Actuator and a Result, which contains a value representing the value associated with the observed Property. In case of sampling, hasResult links a SamplingActivity to the Sample it created."@en ;
   rdfs:label "has result"@en ;
   owl:inverseOf sosa:isResultOf ;
-  skos:definition "Relation linking an Observation and a Sensor or Actuator and a Result, which contains a value representing the value associated with the observed Property."@en ;
+  rdfs:comment "Relation linking an Observation and a Sensor or Actuator and a Result, which contains a value representing the value associated with the observed Property. In case of sampling, hasResult links a SamplingActivity to the Sample it created."@en ;
 .
 sosa:hasSample
   rdf:type owl:ObjectProperty ;
@@ -272,12 +273,13 @@ sosa:isObservedBy
 sosa:isResultOf
   rdf:type owl:ObjectProperty ;
   schema:domainIncludes sosa:Result ;
+  schema:domainIncludes sosa:Sample ;
   schema:rangeIncludes sosa:Actuation ;
   schema:rangeIncludes sosa:Observation ;
-  rdfs:comment "Relation linking a Result to the Observation or Actuation that created or caused it."@en ;
+  rdfs:comment "Relation linking a Result or Sample to the Observation, Actuation, or SamplingActivity that created or caused it."@en ;
   rdfs:label "is result of"@en ;
   owl:inverseOf sosa:hasResult ;
-  skos:definition "Relation linking a Result to the Observation or Actuation that created or caused it."@en ;
+  skos:definition "Relation linking a Result or Sample to the Observation, Actuation, or SamplingActivity that created or caused it."@en ;
 .
 sosa:isSampleOf
   rdf:type owl:ObjectProperty ;
